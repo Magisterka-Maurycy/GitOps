@@ -7,7 +7,7 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-05-28 - 15:14:33 +0000
+    app.quarkus.io/build-timestamp: 2023-05-28 - 15:26:38 +0000
   labels:
     app.kubernetes.io/name: auth
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
@@ -37,10 +37,10 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-05-28 - 15:14:33 +0000
+    app.quarkus.io/build-timestamp: 2023-05-28 - 15:26:38 +0000
   labels:
-    app.kubernetes.io/version: 1.0.0-SNAPSHOT
     app.kubernetes.io/name: auth
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: auth
   namespace: default
@@ -48,8 +48,8 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/version: 1.0.0-SNAPSHOT
       app.kubernetes.io/name: auth
+      app.kubernetes.io/version: 1.0.0-SNAPSHOT
   template:
     metadata:
       annotations:
@@ -57,10 +57,10 @@ spec:
         prometheus.io/port: "8080"
         prometheus.io/path: /q/metrics
         prometheus.io/scrape: "true"
-        app.quarkus.io/build-timestamp: 2023-05-28 - 15:14:33 +0000
+        app.quarkus.io/build-timestamp: 2023-05-28 - 15:26:38 +0000
       labels:
-        app.kubernetes.io/version: 1.0.0-SNAPSHOT
         app.kubernetes.io/name: auth
+        app.kubernetes.io/version: 1.0.0-SNAPSHOT
         app.kubernetes.io/managed-by: quarkus
     spec:
       containers:
@@ -121,7 +121,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/build-timestamp: 2023-05-28 - 15:14:33 +0000
+    app.quarkus.io/build-timestamp: 2023-05-28 - 15:26:38 +0000
   labels:
     app.kubernetes.io/name: auth
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
