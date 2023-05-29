@@ -7,7 +7,7 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-05-28 - 11:28:52 +0000
+    app.quarkus.io/build-timestamp: 2023-05-29 - 16:41:48 +0000
   labels:
     app.kubernetes.io/name: mba
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
@@ -16,14 +16,14 @@ metadata:
   namespace: default
 spec:
   ports:
-    - name: https
-      port: 443
-      protocol: TCP
-      targetPort: 8443
     - name: http
       port: 80
       protocol: TCP
       targetPort: 8080
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
     - name: grpc
       port: 9000
       protocol: TCP
@@ -41,10 +41,10 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-05-28 - 11:28:52 +0000
+    app.quarkus.io/build-timestamp: 2023-05-29 - 16:41:48 +0000
   labels:
-    app.kubernetes.io/name: mba
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.kubernetes.io/name: mba
     app.kubernetes.io/managed-by: quarkus
   name: mba
   namespace: default
@@ -52,8 +52,8 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: mba
       app.kubernetes.io/version: 1.0.0-SNAPSHOT
+      app.kubernetes.io/name: mba
   template:
     metadata:
       annotations:
@@ -61,10 +61,10 @@ spec:
         prometheus.io/port: "8080"
         prometheus.io/path: /q/metrics
         prometheus.io/scrape: "true"
-        app.quarkus.io/build-timestamp: 2023-05-28 - 11:28:52 +0000
+        app.quarkus.io/build-timestamp: 2023-05-29 - 16:41:48 +0000
       labels:
-        app.kubernetes.io/name: mba
         app.kubernetes.io/version: 1.0.0-SNAPSHOT
+        app.kubernetes.io/name: mba
         app.kubernetes.io/managed-by: quarkus
     spec:
       containers:
@@ -90,11 +90,11 @@ spec:
             - containerPort: 9000
               name: grpc
               protocol: TCP
-            - containerPort: 8080
-              name: http
-              protocol: TCP
             - containerPort: 8443
               name: https
+              protocol: TCP
+            - containerPort: 8080
+              name: http
               protocol: TCP
           readinessProbe:
             failureThreshold: 3
@@ -128,7 +128,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/build-timestamp: 2023-05-28 - 11:28:52 +0000
+    app.quarkus.io/build-timestamp: 2023-05-29 - 16:41:48 +0000
   labels:
     app.kubernetes.io/name: mba
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
