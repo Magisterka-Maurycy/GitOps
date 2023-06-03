@@ -7,7 +7,7 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-05-31 - 10:54:25 +0000
+    app.quarkus.io/build-timestamp: 2023-06-03 - 14:22:19 +0000
   labels:
     app.kubernetes.io/name: mba
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
@@ -20,14 +20,14 @@ spec:
       port: 443
       protocol: TCP
       targetPort: 8443
-    - name: grpc
-      port: 9000
-      protocol: TCP
-      targetPort: 9000
     - name: http
       port: 80
       protocol: TCP
       targetPort: 8080
+    - name: grpc
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
   selector:
     app.kubernetes.io/name: mba
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
@@ -41,10 +41,10 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-05-31 - 10:54:25 +0000
+    app.quarkus.io/build-timestamp: 2023-06-03 - 14:22:19 +0000
   labels:
-    app.kubernetes.io/version: 1.0.0-SNAPSHOT
     app.kubernetes.io/name: mba
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: mba
   namespace: default
@@ -52,8 +52,8 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/version: 1.0.0-SNAPSHOT
       app.kubernetes.io/name: mba
+      app.kubernetes.io/version: 1.0.0-SNAPSHOT
   template:
     metadata:
       annotations:
@@ -61,10 +61,10 @@ spec:
         prometheus.io/port: "8080"
         prometheus.io/path: /q/metrics
         prometheus.io/scrape: "true"
-        app.quarkus.io/build-timestamp: 2023-05-31 - 10:54:25 +0000
+        app.quarkus.io/build-timestamp: 2023-06-03 - 14:22:19 +0000
       labels:
-        app.kubernetes.io/version: 1.0.0-SNAPSHOT
         app.kubernetes.io/name: mba
+        app.kubernetes.io/version: 1.0.0-SNAPSHOT
         app.kubernetes.io/managed-by: quarkus
     spec:
       containers:
@@ -87,11 +87,11 @@ spec:
             timeoutSeconds: 10
           name: mba
           ports:
-            - containerPort: 8080
-              name: http
-              protocol: TCP
             - containerPort: 9000
               name: grpc
+              protocol: TCP
+            - containerPort: 8080
+              name: http
               protocol: TCP
             - containerPort: 8443
               name: https
@@ -128,7 +128,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/build-timestamp: 2023-05-31 - 10:54:25 +0000
+    app.quarkus.io/build-timestamp: 2023-06-03 - 14:22:19 +0000
   labels:
     app.kubernetes.io/name: mba
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
