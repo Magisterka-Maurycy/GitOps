@@ -33,8 +33,7 @@ spec:
     spec:
       containers:
       - name: keycloak
-        image: quay.io/keycloak/keycloak:21.1.1
-        args: ["start-dev"]
+        image:  quay.io/maurycy_krzeminski/keycloak
         env:
         - name: KEYCLOAK_ADMIN
           value: "admin"
