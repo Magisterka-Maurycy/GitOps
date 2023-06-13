@@ -7,7 +7,7 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-06-13 - 14:09:23 +0000
+    app.quarkus.io/build-timestamp: 2023-06-13 - 14:39:33 +0000
   labels:
     app.kubernetes.io/name: auth
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
@@ -37,7 +37,7 @@ metadata:
     prometheus.io/port: "8080"
     prometheus.io/path: /q/metrics
     prometheus.io/scrape: "true"
-    app.quarkus.io/build-timestamp: 2023-06-13 - 14:09:23 +0000
+    app.quarkus.io/build-timestamp: 2023-06-13 - 14:39:33 +0000
   labels:
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
     app.kubernetes.io/name: auth
@@ -57,7 +57,7 @@ spec:
         prometheus.io/port: "8080"
         prometheus.io/path: /q/metrics
         prometheus.io/scrape: "true"
-        app.quarkus.io/build-timestamp: 2023-06-13 - 14:09:23 +0000
+        app.quarkus.io/build-timestamp: 2023-06-13 - 14:39:33 +0000
       labels:
         app.kubernetes.io/version: 1.0.0-SNAPSHOT
         app.kubernetes.io/name: auth
@@ -69,6 +69,10 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+            - name: QUARKUS_OIDC_TOKEN_ISSUER
+              value: http://keycloak:8080/realms/quarkus
+            - name: QUARKUS_OIDC_AUTH_SERVER_URL
+              value: http://keycloak:8080/realms/quarkus
           image: quay.io/maurycy_krzeminski/auth:1.0.0-SNAPSHOT
           imagePullPolicy: Always
           livenessProbe:
@@ -121,7 +125,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/build-timestamp: 2023-06-13 - 14:09:23 +0000
+    app.quarkus.io/build-timestamp: 2023-06-13 - 14:39:33 +0000
   labels:
     app.kubernetes.io/name: auth
     app.kubernetes.io/version: 1.0.0-SNAPSHOT
