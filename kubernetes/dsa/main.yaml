@@ -3,15 +3,15 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 914555e8621a78d225a009d08210b4315c3b5e44
-    app.quarkus.io/build-timestamp: 2023-06-20 - 16:33:48 +0000
+    app.quarkus.io/commit-id: e50026a54933b49e8493dacf8c0bb2b9e02ae5e9
+    app.quarkus.io/build-timestamp: 2023-06-20 - 19:17:05 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8081"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/name: dsa
-    app.kubernetes.io/version: 0.1.0
+    app.kubernetes.io/version: 0.1.1-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: dsa
   namespace: default
@@ -27,22 +27,22 @@ spec:
       targetPort: 8443
   selector:
     app.kubernetes.io/name: dsa
-    app.kubernetes.io/version: 0.1.0
+    app.kubernetes.io/version: 0.1.1-SNAPSHOT
   type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 914555e8621a78d225a009d08210b4315c3b5e44
-    app.quarkus.io/build-timestamp: 2023-06-20 - 16:33:48 +0000
+    app.quarkus.io/commit-id: e50026a54933b49e8493dacf8c0bb2b9e02ae5e9
+    app.quarkus.io/build-timestamp: 2023-06-20 - 19:17:05 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8081"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/version: 0.1.0
+    app.kubernetes.io/version: 0.1.1-SNAPSHOT
     app.kubernetes.io/name: dsa
   name: dsa
   namespace: default
@@ -50,20 +50,20 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/version: 0.1.0
+      app.kubernetes.io/version: 0.1.1-SNAPSHOT
       app.kubernetes.io/name: dsa
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 914555e8621a78d225a009d08210b4315c3b5e44
-        app.quarkus.io/build-timestamp: 2023-06-20 - 16:33:48 +0000
+        app.quarkus.io/commit-id: e50026a54933b49e8493dacf8c0bb2b9e02ae5e9
+        app.quarkus.io/build-timestamp: 2023-06-20 - 19:17:05 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8081"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
-        app.kubernetes.io/version: 0.1.0
+        app.kubernetes.io/version: 0.1.1-SNAPSHOT
         app.kubernetes.io/name: dsa
     spec:
       containers:
@@ -72,7 +72,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          image: quay.io/maurycy_krzeminski/dsa:0.1.0
+          image: quay.io/maurycy_krzeminski/dsa:0.1.1-SNAPSHOT
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
@@ -124,11 +124,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 914555e8621a78d225a009d08210b4315c3b5e44
-    app.quarkus.io/build-timestamp: 2023-06-20 - 16:33:48 +0000
+    app.quarkus.io/commit-id: e50026a54933b49e8493dacf8c0bb2b9e02ae5e9
+    app.quarkus.io/build-timestamp: 2023-06-20 - 19:17:05 +0000
   labels:
     app.kubernetes.io/name: dsa
-    app.kubernetes.io/version: 0.1.0
+    app.kubernetes.io/version: 0.1.1-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: dsa
   namespace: default
