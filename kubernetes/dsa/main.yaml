@@ -3,8 +3,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 01adf9e17a7dfbbccb47f85526d1374bb247420e
-    app.quarkus.io/build-timestamp: 2023-06-20 - 15:05:10 +0000
+    app.quarkus.io/commit-id: 049302c7328c7b4ec452daae2319a4ad0be53264
+    app.quarkus.io/build-timestamp: 2023-06-20 - 16:09:41 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -17,14 +17,14 @@ metadata:
   namespace: default
 spec:
   ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 8080
     - name: https
       port: 443
       protocol: TCP
       targetPort: 8443
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
   selector:
     app.kubernetes.io/name: dsa
     app.kubernetes.io/version: 0.1.0
@@ -34,8 +34,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 01adf9e17a7dfbbccb47f85526d1374bb247420e
-    app.quarkus.io/build-timestamp: 2023-06-20 - 15:05:10 +0000
+    app.quarkus.io/commit-id: 049302c7328c7b4ec452daae2319a4ad0be53264
+    app.quarkus.io/build-timestamp: 2023-06-20 - 16:09:41 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -55,8 +55,8 @@ spec:
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 01adf9e17a7dfbbccb47f85526d1374bb247420e
-        app.quarkus.io/build-timestamp: 2023-06-20 - 15:05:10 +0000
+        app.quarkus.io/commit-id: 049302c7328c7b4ec452daae2319a4ad0be53264
+        app.quarkus.io/build-timestamp: 2023-06-20 - 16:09:41 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
@@ -86,11 +86,11 @@ spec:
             timeoutSeconds: 10
           name: dsa
           ports:
-            - containerPort: 8080
-              name: http
-              protocol: TCP
             - containerPort: 8443
               name: https
+              protocol: TCP
+            - containerPort: 8080
+              name: http
               protocol: TCP
           readinessProbe:
             failureThreshold: 3
@@ -124,8 +124,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 01adf9e17a7dfbbccb47f85526d1374bb247420e
-    app.quarkus.io/build-timestamp: 2023-06-20 - 15:05:10 +0000
+    app.quarkus.io/commit-id: 049302c7328c7b4ec452daae2319a4ad0be53264
+    app.quarkus.io/build-timestamp: 2023-06-20 - 16:09:41 +0000
   labels:
     app.kubernetes.io/name: dsa
     app.kubernetes.io/version: 0.1.0
