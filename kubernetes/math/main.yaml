@@ -4,7 +4,7 @@ kind: Service
 metadata:
   annotations:
     app.quarkus.io/commit-id: a81a70465c8b8fd13fd4f9d2b0d80a9548e60766
-    app.quarkus.io/build-timestamp: 2023-06-21 - 15:18:07 +0000
+    app.quarkus.io/build-timestamp: 2023-06-21 - 22:03:42 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -17,14 +17,14 @@ metadata:
   namespace: default
 spec:
   ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 8080
     - name: https
       port: 443
       protocol: TCP
       targetPort: 8443
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
   selector:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.0
@@ -35,7 +35,7 @@ kind: Deployment
 metadata:
   annotations:
     app.quarkus.io/commit-id: a81a70465c8b8fd13fd4f9d2b0d80a9548e60766
-    app.quarkus.io/build-timestamp: 2023-06-21 - 15:18:07 +0000
+    app.quarkus.io/build-timestamp: 2023-06-21 - 22:03:42 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -56,7 +56,7 @@ spec:
     metadata:
       annotations:
         app.quarkus.io/commit-id: a81a70465c8b8fd13fd4f9d2b0d80a9548e60766
-        app.quarkus.io/build-timestamp: 2023-06-21 - 15:18:07 +0000
+        app.quarkus.io/build-timestamp: 2023-06-21 - 22:03:42 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
@@ -86,11 +86,11 @@ spec:
             timeoutSeconds: 10
           name: math
           ports:
-            - containerPort: 8080
-              name: http
-              protocol: TCP
             - containerPort: 8443
               name: https
+              protocol: TCP
+            - containerPort: 8080
+              name: http
               protocol: TCP
           readinessProbe:
             failureThreshold: 3
@@ -125,7 +125,7 @@ kind: Ingress
 metadata:
   annotations:
     app.quarkus.io/commit-id: a81a70465c8b8fd13fd4f9d2b0d80a9548e60766
-    app.quarkus.io/build-timestamp: 2023-06-21 - 15:18:07 +0000
+    app.quarkus.io/build-timestamp: 2023-06-21 - 22:03:42 +0000
   labels:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.0
