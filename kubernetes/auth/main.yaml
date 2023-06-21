@@ -3,68 +3,68 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 67eb2412ce837cc41de9e4c4f59472be57c8a7bc
-    app.quarkus.io/build-timestamp: 2023-06-20 - 19:07:36 +0000
+    app.quarkus.io/commit-id: 8cec2e1d9a2573fa8b1059452d2bb32e0daef1df
+    app.quarkus.io/build-timestamp: 2023-06-21 - 15:10:29 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.1-SNAPSHOT
+    app.kubernetes.io/version: 0.1.0
     app.kubernetes.io/managed-by: quarkus
   name: auth
   namespace: default
 spec:
   ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 8080
     - name: https
       port: 443
       protocol: TCP
       targetPort: 8443
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
   selector:
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.1-SNAPSHOT
+    app.kubernetes.io/version: 0.1.0
   type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 67eb2412ce837cc41de9e4c4f59472be57c8a7bc
-    app.quarkus.io/build-timestamp: 2023-06-20 - 19:07:36 +0000
+    app.quarkus.io/commit-id: 8cec2e1d9a2573fa8b1059452d2bb32e0daef1df
+    app.quarkus.io/build-timestamp: 2023-06-21 - 15:10:29 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
+    app.kubernetes.io/version: 0.1.0
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.1-SNAPSHOT
   name: auth
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app.kubernetes.io/version: 0.1.0
       app.kubernetes.io/name: auth
-      app.kubernetes.io/version: 0.1.1-SNAPSHOT
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 67eb2412ce837cc41de9e4c4f59472be57c8a7bc
-        app.quarkus.io/build-timestamp: 2023-06-20 - 19:07:36 +0000
+        app.quarkus.io/commit-id: 8cec2e1d9a2573fa8b1059452d2bb32e0daef1df
+        app.quarkus.io/build-timestamp: 2023-06-21 - 15:10:29 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
+        app.kubernetes.io/version: 0.1.0
         app.kubernetes.io/name: auth
-        app.kubernetes.io/version: 0.1.1-SNAPSHOT
     spec:
       containers:
         - env:
@@ -76,7 +76,7 @@ spec:
               value: http://keycloak:8080/realms/quarkus
             - name: QUARKUS_OIDC_TOKEN_ISSUER
               value: http://keycloak:8080/realms/quarkus
-          image: quay.io/maurycy_krzeminski/auth:0.1.1-SNAPSHOT
+          image: quay.io/maurycy_krzeminski/auth:0.1.0
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
@@ -90,11 +90,11 @@ spec:
             timeoutSeconds: 10
           name: auth
           ports:
-            - containerPort: 8080
-              name: http
-              protocol: TCP
             - containerPort: 8443
               name: https
+              protocol: TCP
+            - containerPort: 8080
+              name: http
               protocol: TCP
           readinessProbe:
             failureThreshold: 3
@@ -128,11 +128,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 67eb2412ce837cc41de9e4c4f59472be57c8a7bc
-    app.quarkus.io/build-timestamp: 2023-06-20 - 19:07:36 +0000
+    app.quarkus.io/commit-id: 8cec2e1d9a2573fa8b1059452d2bb32e0daef1df
+    app.quarkus.io/build-timestamp: 2023-06-21 - 15:10:29 +0000
   labels:
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.1-SNAPSHOT
+    app.kubernetes.io/version: 0.1.0
     app.kubernetes.io/managed-by: quarkus
   name: auth
   namespace: default
