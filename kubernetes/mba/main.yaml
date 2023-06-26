@@ -3,8 +3,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 28ccbfc0fd3e66523476b8580ba5da96d46394ac
-    app.quarkus.io/build-timestamp: 2023-06-25 - 15:39:42 +0000
+    app.quarkus.io/commit-id: bca9295d314b05809f42c2eaa00f566b8af757ac
+    app.quarkus.io/build-timestamp: 2023-06-26 - 14:38:27 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -34,8 +34,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 28ccbfc0fd3e66523476b8580ba5da96d46394ac
-    app.quarkus.io/build-timestamp: 2023-06-25 - 15:39:42 +0000
+    app.quarkus.io/commit-id: bca9295d314b05809f42c2eaa00f566b8af757ac
+    app.quarkus.io/build-timestamp: 2023-06-26 - 14:38:27 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -55,8 +55,8 @@ spec:
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 28ccbfc0fd3e66523476b8580ba5da96d46394ac
-        app.quarkus.io/build-timestamp: 2023-06-25 - 15:39:42 +0000
+        app.quarkus.io/commit-id: bca9295d314b05809f42c2eaa00f566b8af757ac
+        app.quarkus.io/build-timestamp: 2023-06-26 - 14:38:27 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
@@ -124,8 +124,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 28ccbfc0fd3e66523476b8580ba5da96d46394ac
-    app.quarkus.io/build-timestamp: 2023-06-25 - 15:39:42 +0000
+    app.quarkus.io/commit-id: bca9295d314b05809f42c2eaa00f566b8af757ac
+    app.quarkus.io/build-timestamp: 2023-06-26 - 14:38:27 +0000
   labels:
     app.kubernetes.io/name: mba
     app.kubernetes.io/version: 0.1.1-SNAPSHOT
