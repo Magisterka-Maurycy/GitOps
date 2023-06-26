@@ -3,8 +3,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 33f70528ee9ac829139b8277211004efbc7fff0a
-    app.quarkus.io/build-timestamp: 2023-06-25 - 15:52:31 +0000
+    app.quarkus.io/commit-id: f8e987bc3e85e58bb14ee7b472f4b3930b401a10
+    app.quarkus.io/build-timestamp: 2023-06-26 - 14:33:03 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -17,14 +17,14 @@ metadata:
   namespace: default
 spec:
   ports:
-    - name: https
-      port: 443
-      protocol: TCP
-      targetPort: 8443
     - name: http
       port: 80
       protocol: TCP
       targetPort: 8080
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
   selector:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.1-SNAPSHOT
@@ -34,37 +34,37 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 33f70528ee9ac829139b8277211004efbc7fff0a
-    app.quarkus.io/build-timestamp: 2023-06-25 - 15:52:31 +0000
+    app.quarkus.io/commit-id: f8e987bc3e85e58bb14ee7b472f4b3930b401a10
+    app.quarkus.io/build-timestamp: 2023-06-26 - 14:33:03 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.1-SNAPSHOT
+    app.kubernetes.io/name: math
   name: math
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: math
       app.kubernetes.io/version: 0.1.1-SNAPSHOT
+      app.kubernetes.io/name: math
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 33f70528ee9ac829139b8277211004efbc7fff0a
-        app.quarkus.io/build-timestamp: 2023-06-25 - 15:52:31 +0000
+        app.quarkus.io/commit-id: f8e987bc3e85e58bb14ee7b472f4b3930b401a10
+        app.quarkus.io/build-timestamp: 2023-06-26 - 14:33:03 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
-        app.kubernetes.io/name: math
         app.kubernetes.io/version: 0.1.1-SNAPSHOT
+        app.kubernetes.io/name: math
     spec:
       containers:
         - env:
@@ -86,11 +86,11 @@ spec:
             timeoutSeconds: 10
           name: math
           ports:
-            - containerPort: 8443
-              name: https
-              protocol: TCP
             - containerPort: 8080
               name: http
+              protocol: TCP
+            - containerPort: 8443
+              name: https
               protocol: TCP
           readinessProbe:
             failureThreshold: 3
@@ -124,8 +124,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 33f70528ee9ac829139b8277211004efbc7fff0a
-    app.quarkus.io/build-timestamp: 2023-06-25 - 15:52:31 +0000
+    app.quarkus.io/commit-id: f8e987bc3e85e58bb14ee7b472f4b3930b401a10
+    app.quarkus.io/build-timestamp: 2023-06-26 - 14:33:03 +0000
   labels:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.1-SNAPSHOT
