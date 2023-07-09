@@ -4,7 +4,7 @@ kind: Service
 metadata:
   annotations:
     app.quarkus.io/commit-id: 1f9e06090eeedb1cd537796e6b371b303fce8961
-    app.quarkus.io/build-timestamp: 2023-07-08 - 13:43:25 +0000
+    app.quarkus.io/build-timestamp: 2023-07-09 - 10:45:50 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -31,36 +31,36 @@ kind: Deployment
 metadata:
   annotations:
     app.quarkus.io/commit-id: 1f9e06090eeedb1cd537796e6b371b303fce8961
-    app.quarkus.io/build-timestamp: 2023-07-08 - 13:43:25 +0000
+    app.quarkus.io/build-timestamp: 2023-07-09 - 10:45:50 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.2-SNAPSHOT
+    app.kubernetes.io/name: math
   name: math
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: math
       app.kubernetes.io/version: 0.1.2-SNAPSHOT
+      app.kubernetes.io/name: math
   template:
     metadata:
       annotations:
         app.quarkus.io/commit-id: 1f9e06090eeedb1cd537796e6b371b303fce8961
-        app.quarkus.io/build-timestamp: 2023-07-08 - 13:43:25 +0000
+        app.quarkus.io/build-timestamp: 2023-07-09 - 10:45:50 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
-        app.kubernetes.io/name: math
         app.kubernetes.io/version: 0.1.2-SNAPSHOT
+        app.kubernetes.io/name: math
     spec:
       containers:
         - env:
@@ -118,7 +118,7 @@ kind: Ingress
 metadata:
   annotations:
     app.quarkus.io/commit-id: 1f9e06090eeedb1cd537796e6b371b303fce8961
-    app.quarkus.io/build-timestamp: 2023-07-08 - 13:43:25 +0000
+    app.quarkus.io/build-timestamp: 2023-07-09 - 10:45:50 +0000
   labels:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.2-SNAPSHOT
