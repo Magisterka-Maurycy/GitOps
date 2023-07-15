@@ -4,7 +4,7 @@ metadata:
   labels:
     io.kompose.service: dsa-minio-claim0
   name: dsa-minio-claim0
-  namespace: default
+  namespace: dsa
 spec:
   accessModes:
     - ReadWriteOnce

@@ -4,7 +4,7 @@ metadata:
   labels:
     io.kompose.service: dsa-minio
   name: dsa-minio
-  namespace: default
+  namespace: dsa
 spec:
   replicas: 1
   selector:

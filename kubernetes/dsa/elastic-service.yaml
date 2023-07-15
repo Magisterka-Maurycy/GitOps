@@ -4,7 +4,7 @@ metadata:
   labels:
     io.kompose.service: dsa-elastic
   name: dsa-elastic
-  namespace: default
+  namespace: dsa
 spec:
   ports:
     - name: "9200"
