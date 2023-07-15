@@ -3,15 +3,15 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: f231d27ab76e86bee8c2d08e96b03e917db64833
-    app.quarkus.io/build-timestamp: 2023-07-12 - 15:08:26 +0000
+    app.quarkus.io/commit-id: 74f09601c8d3d5bd5e48336d91d40060fa24cb95
+    app.quarkus.io/build-timestamp: 2023-07-15 - 15:01:32 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.3
+    app.kubernetes.io/version: 0.1.4-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: auth
   namespace: default
@@ -23,44 +23,44 @@ spec:
       targetPort: 8080
   selector:
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.3
+    app.kubernetes.io/version: 0.1.4-SNAPSHOT
   type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: f231d27ab76e86bee8c2d08e96b03e917db64833
-    app.quarkus.io/build-timestamp: 2023-07-12 - 15:08:26 +0000
+    app.quarkus.io/commit-id: 74f09601c8d3d5bd5e48336d91d40060fa24cb95
+    app.quarkus.io/build-timestamp: 2023-07-15 - 15:01:32 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
+    app.kubernetes.io/version: 0.1.4-SNAPSHOT
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.3
   name: auth
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app.kubernetes.io/version: 0.1.4-SNAPSHOT
       app.kubernetes.io/name: auth
-      app.kubernetes.io/version: 0.1.3
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: f231d27ab76e86bee8c2d08e96b03e917db64833
-        app.quarkus.io/build-timestamp: 2023-07-12 - 15:08:26 +0000
+        app.quarkus.io/commit-id: 74f09601c8d3d5bd5e48336d91d40060fa24cb95
+        app.quarkus.io/build-timestamp: 2023-07-15 - 15:01:32 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
+        app.kubernetes.io/version: 0.1.4-SNAPSHOT
         app.kubernetes.io/name: auth
-        app.kubernetes.io/version: 0.1.3
     spec:
       containers:
         - env:
@@ -68,11 +68,11 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-            - name: QUARKUS_OIDC_AUTH_SERVER_URL
-              value: http://keycloak:8080/realms/quarkus
             - name: QUARKUS_OIDC_TOKEN_ISSUER
               value: http://keycloak:8080/realms/quarkus
-          image: quay.io/maurycy_krzeminski/auth:0.1.3
+            - name: QUARKUS_OIDC_AUTH_SERVER_URL
+              value: http://keycloak:8080/realms/quarkus
+          image: quay.io/maurycy_krzeminski/auth:0.1.4-SNAPSHOT
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
@@ -121,11 +121,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: f231d27ab76e86bee8c2d08e96b03e917db64833
-    app.quarkus.io/build-timestamp: 2023-07-12 - 15:08:26 +0000
+    app.quarkus.io/commit-id: 74f09601c8d3d5bd5e48336d91d40060fa24cb95
+    app.quarkus.io/build-timestamp: 2023-07-15 - 15:01:32 +0000
   labels:
     app.kubernetes.io/name: auth
-    app.kubernetes.io/version: 0.1.3
+    app.kubernetes.io/version: 0.1.4-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: auth
   namespace: default
