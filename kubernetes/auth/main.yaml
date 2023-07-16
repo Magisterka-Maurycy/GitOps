@@ -3,8 +3,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: f07dd3a14ce0fe2e6ebbd8e5695ec8d8d0c80cc2
-    app.quarkus.io/build-timestamp: 2023-07-16 - 05:27:41 +0000
+    app.quarkus.io/commit-id: 216ab4b442097c27012106b4ea43df6b139fa0d9
+    app.quarkus.io/build-timestamp: 2023-07-16 - 06:52:29 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -30,8 +30,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: f07dd3a14ce0fe2e6ebbd8e5695ec8d8d0c80cc2
-    app.quarkus.io/build-timestamp: 2023-07-16 - 05:27:41 +0000
+    app.quarkus.io/commit-id: 216ab4b442097c27012106b4ea43df6b139fa0d9
+    app.quarkus.io/build-timestamp: 2023-07-16 - 06:52:29 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -51,8 +51,8 @@ spec:
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: f07dd3a14ce0fe2e6ebbd8e5695ec8d8d0c80cc2
-        app.quarkus.io/build-timestamp: 2023-07-16 - 05:27:41 +0000
+        app.quarkus.io/commit-id: 216ab4b442097c27012106b4ea43df6b139fa0d9
+        app.quarkus.io/build-timestamp: 2023-07-16 - 06:52:29 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
@@ -68,9 +68,9 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-            - name: QUARKUS_OIDC_AUTH_SERVER_URL
-              value: http://keycloak:8080/realms/quarkus
             - name: QUARKUS_OIDC_TOKEN_ISSUER
+              value: http://keycloak:8080/realms/quarkus
+            - name: QUARKUS_OIDC_AUTH_SERVER_URL
               value: http://keycloak:8080/realms/quarkus
           image: quay.io/maurycy_krzeminski/auth:0.1.4-SNAPSHOT
           imagePullPolicy: Always
@@ -121,8 +121,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: f07dd3a14ce0fe2e6ebbd8e5695ec8d8d0c80cc2
-    app.quarkus.io/build-timestamp: 2023-07-16 - 05:27:41 +0000
+    app.quarkus.io/commit-id: 216ab4b442097c27012106b4ea43df6b139fa0d9
+    app.quarkus.io/build-timestamp: 2023-07-16 - 06:52:29 +0000
   labels:
     app.kubernetes.io/name: auth
     app.kubernetes.io/version: 0.1.4-SNAPSHOT
