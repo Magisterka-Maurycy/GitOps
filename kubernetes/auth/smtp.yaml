@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: smtp
+  name: smtp
+  namespace: auth
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: smtp
+  template:
+    metadata:
+      labels:
+        io.kompose.network/auth-default: "true"
+        io.kompose.service: smtp
+    spec:
+      containers:
+        - image: mailhog/mailhog
+          name: smtp
+          ports:
+            - containerPort: 8025
+            - containerPort: 1025
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: smtp
+  name: smtp
+  namespace: auth
+spec:
+  ports:
+    - name: "http"
+      port: 8080
+      targetPort: 8025
+    - name: "smtp"
+      port: 1025
+      targetPort: 1025
+  selector:
+    io.kompose.service: smtp
+---
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: smtp
+  namespace: auth
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: smtp.localhost
+      http:
+        paths:
+          - backend:
+              service:
+                name: smtp
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
