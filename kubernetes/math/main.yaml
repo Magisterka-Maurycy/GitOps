@@ -1,10 +1,37 @@
 ---
 apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    app.quarkus.io/commit-id: 186f96b4f1fca7e95b9a73f726338dbf36ec47b1
+    app.quarkus.io/build-timestamp: 2023-07-21 - 04:57:48 +0000
+  labels:
+    app.kubernetes.io/managed-by: quarkus
+    app.kubernetes.io/version: 0.1.4-SNAPSHOT
+    app.kubernetes.io/name: math
+  name: math
+  namespace: math
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: math-view
+  namespace: math
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: view
+subjects:
+  - kind: ServiceAccount
+    name: math
+    namespace: math
+---
+apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 6a271e0fd39ad113b485f4deeb5a16c002504ce8
-    app.quarkus.io/build-timestamp: 2023-07-16 - 05:38:16 +0000
+    app.quarkus.io/commit-id: 186f96b4f1fca7e95b9a73f726338dbf36ec47b1
+    app.quarkus.io/build-timestamp: 2023-07-21 - 04:57:48 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -30,8 +57,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 6a271e0fd39ad113b485f4deeb5a16c002504ce8
-    app.quarkus.io/build-timestamp: 2023-07-16 - 05:38:16 +0000
+    app.quarkus.io/commit-id: 186f96b4f1fca7e95b9a73f726338dbf36ec47b1
+    app.quarkus.io/build-timestamp: 2023-07-21 - 04:57:48 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -51,8 +78,8 @@ spec:
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 6a271e0fd39ad113b485f4deeb5a16c002504ce8
-        app.quarkus.io/build-timestamp: 2023-07-16 - 05:38:16 +0000
+        app.quarkus.io/commit-id: 186f96b4f1fca7e95b9a73f726338dbf36ec47b1
+        app.quarkus.io/build-timestamp: 2023-07-21 - 04:57:48 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
@@ -61,6 +88,7 @@ spec:
         app.kubernetes.io/managed-by: quarkus
         app.kubernetes.io/version: 0.1.4-SNAPSHOT
         app.kubernetes.io/name: math
+      namespace: math
     spec:
       containers:
         - env:
@@ -112,13 +140,14 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 10
+      serviceAccountName: math
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 6a271e0fd39ad113b485f4deeb5a16c002504ce8
-    app.quarkus.io/build-timestamp: 2023-07-16 - 05:38:16 +0000
+    app.quarkus.io/commit-id: 186f96b4f1fca7e95b9a73f726338dbf36ec47b1
+    app.quarkus.io/build-timestamp: 2023-07-21 - 04:57:48 +0000
   labels:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.4-SNAPSHOT
