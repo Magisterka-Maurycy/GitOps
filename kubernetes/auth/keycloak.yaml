@@ -60,24 +60,10 @@ spec:
     - host: keycloak.localhost
       http:
         paths:
-          - path: /js
-            backend:
+          - backend:
               service:
                 name: keycloak
                 port:
                   name: http
+            path: /
             pathType: Prefix
-          - path: /realms
-            backend:
-              service:
-                name: keycloak
-                port:
-                  name: http
-            pathType: Prefix
-          - path: /resources
-            backend:
-              service:
-                name: keycloak
-                port:
-                  name: http
-            pathType: Prefix  
