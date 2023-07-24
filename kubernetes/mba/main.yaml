@@ -4,10 +4,10 @@ kind: ServiceAccount
 metadata:
   annotations:
     app.quarkus.io/commit-id: d68b24fba4f0668882b8ea8fd2d7bb1a385e4df9
-    app.quarkus.io/build-timestamp: 2023-07-24 - 18:13:40 +0000
+    app.quarkus.io/build-timestamp: 2023-07-24 - 18:50:27 +0000
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/version: 0.1.4-SNAPSHOT
+    app.kubernetes.io/version: 0.1.4
     app.kubernetes.io/name: mba
   name: mba
   namespace: mba
@@ -31,14 +31,14 @@ kind: Service
 metadata:
   annotations:
     app.quarkus.io/commit-id: d68b24fba4f0668882b8ea8fd2d7bb1a385e4df9
-    app.quarkus.io/build-timestamp: 2023-07-24 - 18:13:40 +0000
+    app.quarkus.io/build-timestamp: 2023-07-24 - 18:50:27 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/name: mba
-    app.kubernetes.io/version: 0.1.4-SNAPSHOT
+    app.kubernetes.io/version: 0.1.4
     app.kubernetes.io/managed-by: quarkus
   name: mba
   namespace: mba
@@ -50,7 +50,7 @@ spec:
       targetPort: 8080
   selector:
     app.kubernetes.io/name: mba
-    app.kubernetes.io/version: 0.1.4-SNAPSHOT
+    app.kubernetes.io/version: 0.1.4
   type: ClusterIP
 ---
 apiVersion: apps/v1
@@ -58,14 +58,14 @@ kind: Deployment
 metadata:
   annotations:
     app.quarkus.io/commit-id: d68b24fba4f0668882b8ea8fd2d7bb1a385e4df9
-    app.quarkus.io/build-timestamp: 2023-07-24 - 18:13:40 +0000
+    app.quarkus.io/build-timestamp: 2023-07-24 - 18:50:27 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/version: 0.1.4-SNAPSHOT
+    app.kubernetes.io/version: 0.1.4
     app.kubernetes.io/name: mba
   name: mba
   namespace: mba
@@ -73,20 +73,20 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/version: 0.1.4-SNAPSHOT
+      app.kubernetes.io/version: 0.1.4
       app.kubernetes.io/name: mba
   template:
     metadata:
       annotations:
         app.quarkus.io/commit-id: d68b24fba4f0668882b8ea8fd2d7bb1a385e4df9
-        app.quarkus.io/build-timestamp: 2023-07-24 - 18:13:40 +0000
+        app.quarkus.io/build-timestamp: 2023-07-24 - 18:50:27 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
-        app.kubernetes.io/version: 0.1.4-SNAPSHOT
+        app.kubernetes.io/version: 0.1.4
         app.kubernetes.io/name: mba
       namespace: mba
     spec:
@@ -96,7 +96,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          image: quay.io/maurycy_krzeminski/mba:0.1.4-SNAPSHOT
+          image: quay.io/maurycy_krzeminski/mba:0.1.4
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
@@ -147,10 +147,10 @@ kind: Ingress
 metadata:
   annotations:
     app.quarkus.io/commit-id: d68b24fba4f0668882b8ea8fd2d7bb1a385e4df9
-    app.quarkus.io/build-timestamp: 2023-07-24 - 18:13:40 +0000
+    app.quarkus.io/build-timestamp: 2023-07-24 - 18:50:27 +0000
   labels:
     app.kubernetes.io/name: mba
-    app.kubernetes.io/version: 0.1.4-SNAPSHOT
+    app.kubernetes.io/version: 0.1.4
     app.kubernetes.io/managed-by: quarkus
   name: mba
   namespace: mba
