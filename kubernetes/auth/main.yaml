@@ -4,7 +4,7 @@ kind: ServiceAccount
 metadata:
   annotations:
     app.quarkus.io/commit-id: 92bdb2e343ba43dd4acbc3ccfb52f6bf86cf373c
-    app.quarkus.io/build-timestamp: 2023-07-28 - 14:55:32 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:29:41 +0000
   labels:
     app.kubernetes.io/managed-by: quarkus
     app.kubernetes.io/name: auth
@@ -31,7 +31,7 @@ kind: Service
 metadata:
   annotations:
     app.quarkus.io/commit-id: 92bdb2e343ba43dd4acbc3ccfb52f6bf86cf373c
-    app.quarkus.io/build-timestamp: 2023-07-28 - 14:55:32 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:29:41 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -58,7 +58,7 @@ kind: Deployment
 metadata:
   annotations:
     app.quarkus.io/commit-id: 92bdb2e343ba43dd4acbc3ccfb52f6bf86cf373c
-    app.quarkus.io/build-timestamp: 2023-07-28 - 14:55:32 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:29:41 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -79,7 +79,7 @@ spec:
     metadata:
       annotations:
         app.quarkus.io/commit-id: 92bdb2e343ba43dd4acbc3ccfb52f6bf86cf373c
-        app.quarkus.io/build-timestamp: 2023-07-28 - 14:55:32 +0000
+        app.quarkus.io/build-timestamp: 2023-07-31 - 19:29:41 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
@@ -151,7 +151,7 @@ kind: Ingress
 metadata:
   annotations:
     app.quarkus.io/commit-id: 92bdb2e343ba43dd4acbc3ccfb52f6bf86cf373c
-    app.quarkus.io/build-timestamp: 2023-07-28 - 14:55:32 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:29:41 +0000
   labels:
     app.kubernetes.io/name: auth
     app.kubernetes.io/version: 0.1.5-SNAPSHOT
