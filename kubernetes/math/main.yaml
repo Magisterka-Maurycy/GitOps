@@ -4,11 +4,11 @@ kind: ServiceAccount
 metadata:
   annotations:
     app.quarkus.io/commit-id: 3252774c81fee46e9b9d4c51bea4423d3822a1a6
-    app.quarkus.io/build-timestamp: 2023-07-27 - 19:38:43 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:37:39 +0000
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/version: 0.1.5-SNAPSHOT
     app.kubernetes.io/name: math
+    app.kubernetes.io/version: 0.1.5-SNAPSHOT
   name: math
   namespace: math
 ---
@@ -31,7 +31,7 @@ kind: Service
 metadata:
   annotations:
     app.quarkus.io/commit-id: 3252774c81fee46e9b9d4c51bea4423d3822a1a6
-    app.quarkus.io/build-timestamp: 2023-07-27 - 19:38:43 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:37:39 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
@@ -58,36 +58,36 @@ kind: Deployment
 metadata:
   annotations:
     app.quarkus.io/commit-id: 3252774c81fee46e9b9d4c51bea4423d3822a1a6
-    app.quarkus.io/build-timestamp: 2023-07-27 - 19:38:43 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:37:39 +0000
     prometheus.io/scrape: "true"
     prometheus.io/path: /q/metrics
     prometheus.io/port: "8080"
     prometheus.io/scheme: http
   labels:
     app.kubernetes.io/managed-by: quarkus
-    app.kubernetes.io/version: 0.1.5-SNAPSHOT
     app.kubernetes.io/name: math
+    app.kubernetes.io/version: 0.1.5-SNAPSHOT
   name: math
   namespace: math
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/version: 0.1.5-SNAPSHOT
       app.kubernetes.io/name: math
+      app.kubernetes.io/version: 0.1.5-SNAPSHOT
   template:
     metadata:
       annotations:
         app.quarkus.io/commit-id: 3252774c81fee46e9b9d4c51bea4423d3822a1a6
-        app.quarkus.io/build-timestamp: 2023-07-27 - 19:38:43 +0000
+        app.quarkus.io/build-timestamp: 2023-07-31 - 19:37:39 +0000
         prometheus.io/scrape: "true"
         prometheus.io/path: /q/metrics
         prometheus.io/port: "8080"
         prometheus.io/scheme: http
       labels:
         app.kubernetes.io/managed-by: quarkus
-        app.kubernetes.io/version: 0.1.5-SNAPSHOT
         app.kubernetes.io/name: math
+        app.kubernetes.io/version: 0.1.5-SNAPSHOT
       namespace: math
     spec:
       containers:
@@ -147,7 +147,7 @@ kind: Ingress
 metadata:
   annotations:
     app.quarkus.io/commit-id: 3252774c81fee46e9b9d4c51bea4423d3822a1a6
-    app.quarkus.io/build-timestamp: 2023-07-27 - 19:38:43 +0000
+    app.quarkus.io/build-timestamp: 2023-07-31 - 19:37:39 +0000
   labels:
     app.kubernetes.io/name: math
     app.kubernetes.io/version: 0.1.5-SNAPSHOT
